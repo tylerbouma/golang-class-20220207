@@ -41,7 +41,7 @@ func (v Virtmach) sysinfo() {
 	fmt.Println("VM status:", v.status)
 	fmt.Println("resource group:", v.resourceGroup)
 	for i, c := range v.tags {
-		fmt.Printf("tag%v name: %v\n", i, c.tagName)
+		fmt.Printf("\ntag%v name: %v\n", i, c.tagName)
 		fmt.Printf("tag%v value: %v\n", i, c.tagVal)
 	}
 	fmt.Printf("--------------\n\n")
@@ -61,7 +61,7 @@ func main() {
 		ram:           8,
 		resourceGroup: "none",
 		status:        "running",
-		tags:          []Tags{{"priority", "critical"}, {"org", "enterprise"}},
+		tags:          []Tags{{"priority", "critical"}, {"org", "enterprise"}, {"vulnerability", "none..."}},
 	}
 
 	// mess around with the vm and view changes
