@@ -7,17 +7,28 @@ import (
 )
 
 func main() {
-	fmt.Println("game: guess a number between 0 and 10")
-	fmt.Println("you have three tries")
+	var tries int
+
+	fmt.Println("game: guess a number")
+	fmt.Print("how many tries would you like to have?: ")
+	fmt.Scan(&tries)
+	fmt.Printf("you have %v tries\n", tries)
 
 	source := rand.NewSource(time.Now().UnixNano())
 
 	randomizer := rand.New(source)
-	secretNumber := randomizer.Intn(10)
+	var secretNumber int
+	if tries < 5 {
+		secretNumber = randomizer.Intn(10)
+		fmt.Println("guess a number between 0 and 10")
+	} else {
+		secretNumber = randomizer.Intn(100)
+		fmt.Println("guess a number between 0 and 100")
+	}
 
 	var guess int
 
-	for try := 1; try <= 3; try++ {
+	for try := 1; try <= tries; try++ {
 		fmt.Println("Round:", try)
 		fmt.Println("Please enter your number")
 		fmt.Scan(&guess)
@@ -31,7 +42,7 @@ func main() {
 			break
 		}
 
-		if try == 3 {
+		if try == tries {
 			fmt.Println("game over!")
 			fmt.Println("the correct number was:", secretNumber)
 			break
