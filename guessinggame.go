@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"os"
 	"time"
 )
 
@@ -43,16 +44,12 @@ func main() {
 		} else if guess > secretNumber {
 			fmt.Println("sorry, your guess was too high")
 		} else {
-			fmt.Println("you win!")
-			break
-		}
-
-		if try == tries {
-			fmt.Println("game over!")
-			fmt.Println("the correct number was:", secretNumber)
-			break
+			fmt.Println("you win! thanks for playing!")
+			os.Exit(0)
 		}
 	}
 
+	fmt.Println("game over!")
+	fmt.Println("the correct number was:", secretNumber)
 	fmt.Println("thanks for playing")
 }
