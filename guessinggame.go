@@ -12,6 +12,11 @@ func main() {
 	fmt.Println("game: guess a number")
 	fmt.Print("how many tries would you like to have?: ")
 	fmt.Scan(&tries)
+	for tries < 1 {
+		fmt.Println("you stinker, pick a number of tries greater than 1")
+		fmt.Print("how many tries would you like to have?: ")
+		fmt.Scan(&tries)
+	}
 	fmt.Printf("you have %v tries\n", tries)
 
 	source := rand.NewSource(time.Now().UnixNano())
