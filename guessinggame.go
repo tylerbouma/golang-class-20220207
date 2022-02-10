@@ -24,10 +24,10 @@ func main() {
 	randomizer := rand.New(source)
 	var secretNumber int
 	if tries < 5 {
-		secretNumber = randomizer.Intn(10)
+		secretNumber = randomizer.Intn(11)
 		fmt.Println("guess a number between 0 and 10")
 	} else {
-		secretNumber = randomizer.Intn(100)
+		secretNumber = randomizer.Intn(101)
 		fmt.Println("guess a number between 0 and 100")
 	}
 
